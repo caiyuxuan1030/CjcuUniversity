@@ -19,21 +19,35 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FirstMidName)
+            @Html.DisplayNameFor(model => model.Enrollments)
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.FirstMidName)
+            <table class="table">
+                <tr>
+                    <th>Course Title</th>
+                    <th>Grade</th>
+                    <th>LastName</th>
+                    <th>Credits</th>
+                </tr>
+                @foreach (var item in Model.Enrollments)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Grade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course.Credits)
+                    </td>
+                </tr>
+                }
+            </table>
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EnrollmentDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EnrollmentDate)
-        </dd>
-
     </dl>
 </div>
 <p>
